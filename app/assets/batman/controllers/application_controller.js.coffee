@@ -1,0 +1,1 @@
+class CoffeeQueue.ApplicationController extends Batman.Controller

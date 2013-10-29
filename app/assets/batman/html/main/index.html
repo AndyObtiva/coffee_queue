@@ -1,0 +1,10 @@
+<div id="actions">
+  <div data-showif="hasCoffee"><span data-bind="order.coffee"></span></div>
+  <div><label>Name:</label><input type="text" data-bind="order.customer_name"></div>
+  <div><button data-event-click="requestCoffee">Request Coffee</button></div>
+</div>
+<ul id="order-queue">
+  <li data-foreach-order="orders"
+      data-bind="order.customer_name">
+  </li>
+</ul>
