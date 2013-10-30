@@ -1,13 +1,13 @@
 class CoffeeQueue.MainIndexView extends Batman.View
+  constructor: ->
+    super
+    @set('order', new CoffeeQueue.Order(coffee: 'Espresso'))
+    @set('orders', CoffeeQueue.Order.get('all'))
+
   requestCoffee: ->
-    @controller.order.set('customer_name', 'Enter Name')
-    @controller.orders << @controller.order
+    @order.save()
+    @orders.add(@order)
+    @set('order', new CoffeeQueue.Order(coffee: 'Espresso'))
 
   @accessor 'hasCoffee', ->
     true
-
-  @accessor 'order', ->
-    new CoffeeQueue.Order(customer_name: 'Enter Name', coffee: 'Espresso')
-
-  @accessor 'orders', ->
-    CoffeeQueue.Order.get('all')
