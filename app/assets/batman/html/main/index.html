@@ -1,10 +1,20 @@
 <div id="actions">
   <div><label>Name:</label><input type="text" placeholder="Enter Name" data-bind="order.customer_name"></div>
-  <div class="products">Coffee:
+  <div class="products">Coffee Drinks:
     <div data-foreach-product="products">
-      <input type="radio" name="order[product_id]" data-bind-id="product.id | prepend 'product_'"  data-bind-value="product.id" data-bind-checked="product.id | equals 1" data-bind="order.product_id" />
-      <label data-bind-for="product.id | prepend 'product_'" data-bind="product.name"></label>
+      <input type="radio" name="order[product_id]" data-event-change="refresh_product_options" data-source-id="product.id | prepend 'product_'" data-source-value="product.id" data-source-checked="product.id | equals order.product_id" data-bind="order.product_id" />
+      <label data-source-for="product.id | prepend 'product_'" data-source="product.name"></label>
     </div>
+  </div>
+  <div class="product_options">Options:
+    <ul>
+      <li data-foreach-option="product_options" data-showif="option" data-bind="option.name">
+      </li>
+    </ul>
+    <!--<div data-foreach-option="product_options" data-bind="option.name">-->
+      <!--<input type="radio" name="order[product_option_id]" data-bind-id="option.id | prepend 'product_option_'" data-bind-value="option.id" data-bind-checked="option.id | equals 1" data-bind="order.product_option_id" />-->
+      <!--<label data-bind-for="option.id | prepend 'product_option_'" data-bind="option.name"></label>-->
+    <!--</div>-->
   </div>
   <div><button data-event-click="requestCoffee">Request Coffee</button></div>
 </div>

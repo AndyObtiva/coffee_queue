@@ -1,5 +1,7 @@
 CoffeeQueue::Application.routes.draw do
 
+  resources :product_options
+
   resources :products
 
   resources :orders
