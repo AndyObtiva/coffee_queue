@@ -1,21 +1,34 @@
-<div id="actions">
-  <div><label>Name:</label><input type="text" placeholder="Enter Name" data-bind="order.customer_name"></div>
-  <div class="products">Coffee Drinks:
+<div id="coffee_request_form">
+  <div class="name step">
+    <p>Step 1</p>
+    <label>Name:</label><input type="text" placeholder="Enter Name" data-bind="order.customer_name">
+  </div>
+  <div class="products step">
+    <p>Step 2</p>
+    Coffee Drinks:
     <div data-foreach-product="products">
       <input type="radio" name="order[product_id]" data-event-change="refresh_product_options" data-source-id="product.id | prepend 'product_'" data-source-value="product.id" data-source-checked="product.id | equals order.product_id" data-bind="order.product_id" />
       <label data-source-for="product.id | prepend 'product_'" data-source="product.name"></label>
     </div>
   </div>
-  <div class="product_options">Options:
+  <div class="product_options step">
+    <p>Step 3</p>
+    Options:
     <div data-foreach-option="product_options">
       <input type="radio" name="order[product_option_id]" data-source-id="option.id | prepend 'product_option_'" data-source-value="option.id" data-source-checked="option.id | equals order.product_option_id" data-bind="order.product_option_id" />
       <label data-source-for="option.id | prepend 'product_option_'" data-source="option.name"></label>
     </div>
   </div>
-  <div><button data-event-click="requestCoffee">Request Coffee</button></div>
+  <div class="actions step">
+    <p>Step 4</p>
+    <button data-event-click="requestCoffee">Submit Coffee Order</button>
+  </div>
 </div>
-<ul id="order-queue">
-  <li data-foreach-order="orders"
-      data-bind="order.customer_name | append ' - ' | append order.product.name | append ' - ' | append order.product_option.name">
-  </li>
-</ul>
+<div id="order_queue">
+  Order Queue
+  <ul>
+    <li data-foreach-order="orders"
+        data-bind="order.customer_name | append ' - ' | append order.product.name | append ' - ' | append order.product_option.name">
+    </li>
+  </ul>
+</div>

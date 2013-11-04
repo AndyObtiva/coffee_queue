@@ -11,3 +11,11 @@
  *= require_self
  *= require_tree .
  */
+
+.step {
+  float:left;
+}
+
+#order_queue {
+  clear: both;
+}
