@@ -3,6 +3,12 @@ class CoffeeQueue.MainIndexView extends Batman.View
     super
     @set('orders', CoffeeQueue.Order.get('all'))
     @refresh()
+    pusher = new Pusher('345c12f8435308e8d223');
+    channel = pusher.subscribe('orders_channel');
+    channel.bind 'order_created', (data) =>
+      order_id = data["id"]
+      CoffeeQueue.Order.find order_id, (err, order) =>
+        @get('orders').add(order)
 
   @accessor 'products', ->
     CoffeeQueue.Product.get('all')
@@ -11,7 +17,7 @@ class CoffeeQueue.MainIndexView extends Batman.View
     console.log(@get('order'))
     @get('order').save (err) => #change to @order if plausible
       if err && err.status == 200
-        @get('orders').add(@order) #change to @order if plausible
+#        @get('orders').add(@order)
         @refresh()
       else
         console.log(err)

@@ -1,3 +1,4 @@
+#= require pusher.min
 #= require batman/es5-shim
 
 #= require batman/batman
@@ -12,6 +13,10 @@
 #= require_tree ./controllers
 #= require_tree ./models
 #= require_tree ./views
+
+Pusher.log = (message) =>
+  if window.console && window.console.log
+    window.console.log(message)
 
 Batman.config.pathToHTML = '/assets/html'
 #Batman.config.pathToApp = '/'

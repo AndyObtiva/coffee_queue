@@ -14,7 +14,15 @@ class OrdersController < ApplicationController
     if order.save
       respond_to do |format|
         format.html {redirect_to orders_path}
-        format.json {head :ok}
+        format.json do
+          begin
+            Pusher.trigger('orders_channel', 'order_created', order.to_json)
+          rescue Pusher::Error => e
+            Rails.logger.error(e.to_s)
+            Rails.logger.error(e.backtrace.join("\n"))
+          end
+          head :ok
+        end
       end
     else
       respond_to do |format|
@@ -24,6 +32,9 @@ class OrdersController < ApplicationController
     end
   end
 
+  def show
+    respond_with Order.find(params[:id])
+  end
 
   private
   def order_params

@@ -6,15 +6,17 @@ marks the order as fulfilled in the application so that the customer notices, pa
 grabs the fulfilled order. Once the order has been delivered, it disappears from the application visual display. 
 
 This is written as a single-page web application to demo Batman.js's client-side data-binding capabilities running on 
-top of Rails 4.
+top of Rails 4 as well as Pusher's web push capabilities.
 
 Prerequisites:
 * RVM 1.22.2
 * bundler gem ( <tt>gem install bundler</tt> )
+* Pusher (http://pusher.com) account
 
 To get started, simply do the following:
 * <tt>git clone git@github.com:AndyObtiva/coffee_queue.git</tt>
 * <tt>cd coffee_queue</tt>
+* Create <tt>config/initializers/a_local_initializer.rb</tt> (in .gitignore for security reasons) and fill it with your Pusher account values for <tt>ENV['pusher_app_id']</tt>, <tt>ENV['pusher_key']</tt>, and <tt>ENV['pusher_secret']</tt>
 * <tt>bundle install</tt>
 * <tt>rake db:create</tt> (creates SQLite3 database)
 * <tt>rake db:migrate</tt>
