@@ -1,28 +1,22 @@
-== README
+== Coffee Queue
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a coffee ordering and fulfillment application that enables coffeeshop patrons to submit requests online, via a
+physical panel, or to the barrista directly, and then once their order is ready, they pay the barrista directly and
+grab their order.
 
-Things you may want to cover:
+It is written to demo Batman.js's client-side data-binding capabilities runnint on top of Rails 4
 
-* Ruby version
+Prerequisites:
+* RVM 1.22.2
+* bundler gem ( <tt>gem install bundler</tt> )
 
-* System dependencies
+To get started, simply do the following:
+* <tt>git clone git@github.com:AndyObtiva/coffee_queue.git</tt>
+* <tt>cd coffee_queue</tt>
+* <tt>bundle install</tt>
+* <tt>rake db:create</tt> (creates SQLite3 database)
+* <tt>rake db:migrate</tt>
+* <tt>rake db:seed</tt>
+* <tt>rails server</tt>
+* Visit http://localhost:3000 in the browser
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
