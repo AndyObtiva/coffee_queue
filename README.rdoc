@@ -8,6 +8,9 @@ grabs the fulfilled order. Once the order has been delivered, it disappears from
 This is written as a single-page web application to demo Batman.js's client-side data-binding capabilities running on 
 top of Rails 4 as well as Pusher's web push capabilities.
 
+Project Specifications:
+https://docs.google.com/document/d/1yT65s1781Lh18Q4ulCMHxsB8AaelX_JpC78jmWpk_WU/edit?usp=sharing
+
 Prerequisites:
 * RVM 1.22.2
 * bundler gem ( <tt>gem install bundler</tt> )
