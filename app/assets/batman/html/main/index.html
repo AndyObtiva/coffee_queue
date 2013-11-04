@@ -7,19 +7,15 @@
     </div>
   </div>
   <div class="product_options">Options:
-    <ul>
-      <li data-foreach-option="product_options" data-showif="option" data-bind="option.name">
-      </li>
-    </ul>
-    <!--<div data-foreach-option="product_options" data-bind="option.name">-->
-      <!--<input type="radio" name="order[product_option_id]" data-bind-id="option.id | prepend 'product_option_'" data-bind-value="option.id" data-bind-checked="option.id | equals 1" data-bind="order.product_option_id" />-->
-      <!--<label data-bind-for="option.id | prepend 'product_option_'" data-bind="option.name"></label>-->
-    <!--</div>-->
+    <div data-foreach-option="product_options">
+      <input type="radio" name="order[product_option_id]" data-source-id="option.id | prepend 'product_option_'" data-source-value="option.id" data-source-checked="option.id | equals order.product_option_id" data-bind="order.product_option_id" />
+      <label data-source-for="option.id | prepend 'product_option_'" data-source="option.name"></label>
+    </div>
   </div>
   <div><button data-event-click="requestCoffee">Request Coffee</button></div>
 </div>
 <ul id="order-queue">
   <li data-foreach-order="orders"
-      data-bind="order.customer_name | append ' - ' | append order.product.name">
+      data-bind="order.customer_name | append ' - ' | append order.product.name | append ' - ' | append order.product_option.name">
   </li>
 </ul>
