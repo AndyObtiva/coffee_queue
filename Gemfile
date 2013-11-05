@@ -30,7 +30,9 @@ gem 'jquery-rails'
 # Use jquery as the JavaScript library
 gem 'batman-rails', '0.15.4'
 
-gem 'pusher'
+gem 'pusher', '0.12.0'
+
+gem 'devise', '3.0.0'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
