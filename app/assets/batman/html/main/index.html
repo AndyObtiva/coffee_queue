@@ -1,29 +1,27 @@
 <div id="coffee_request_form">
   <div class="name step">
-    <p>Step 1</p>
-    <label for="customer_name">Name</label><br>
-    <input type="text" id="customer_name" placeholder="Enter Name" data-bind="order.customer_name">
+    <p>1. <label for="order_customer_name">Name</label></p>
+    <input type="text" id="order_customer_name" placeholder="Enter Name" data-bind="order.customer_name">
   </div>
   <div class="products step">
-    <p>Step 2</p>
-    Coffee Drinks
-    <div data-foreach-product="products">
-      <input type="radio" name="order[product_id]" data-event-change="refresh_product_options" data-source-id="product.id | prepend 'product_'" data-source-value="product.id" data-source-checked="product.id | equals order.product_id" data-bind="order.product_id" />
-      <label data-source-for="product.id | prepend 'product_'" data-source="product.name"></label>
-    </div>
+    <p>2. <label for="order_product">Drink</label></p>
+    <select id="order_product" name="order[product_id]" data-event-change="refresh_product_options" data-bind="order.product_id">
+      <option data-foreach-product="products" data-source-value="product.id" data-bind="product.name" />
+    </select>
   </div>
   <div class="product_options step">
-    <p>Step 3</p>
-    Options
-    <div data-foreach-option="product_options">
-      <input type="radio" name="order[product_option_id]" data-source-id="option.id | prepend 'product_option_'" data-source-value="option.id" data-source-checked="option.id | equals order.product_option_id" data-bind="order.product_option_id" />
-      <label data-source-for="option.id | prepend 'product_option_'" data-source="option.name"></label>
-    </div>
+    <p>3. <label for="order_product_option">Option</label></p>
+    <select id="order_product_option" name="order[product_option_id]" data-bind="order.product_option_id">
+      <option data-foreach-option="product_options" data-source-value="option.id" data-bind="option.name" />
+    </select>
   </div>
   <div class="actions step">
-    <p>Step 4</p>
+    <p>&nbsp;</p>
     <button data-event-click="requestCoffee">Submit Coffee Order</button>
   </div>
+</div>
+<div id="barista_actions">
+  <p><span data-source="signed_in_barista.username | default 'Barista' | prepend 'Welcome ' | append '!'"></span></p>
 </div>
 <div id="order_queue">
   Order Queue

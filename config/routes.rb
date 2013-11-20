@@ -1,6 +1,8 @@
 CoffeeQueue::Application.routes.draw do
 
-  devise_for :baristas, controllers: { sessions: "baristas/sessions", registrations: "baristas/registrations" }
+  devise_for :baristas, controllers: { sessions: "baristas/sessions", registrations: "baristas/registrations" } do
+    get "baristas/signed_in_barista", :to => "baristas/sessions#signed_in_barista", :as => "signed_in_barista_session"
+  end
   resources :product_options
 
   resources :products
