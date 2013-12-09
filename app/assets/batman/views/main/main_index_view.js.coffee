@@ -42,3 +42,20 @@ class CoffeeQueue.MainIndexView extends Batman.View
             @get('order').set('product_option_id', first_product_option.get('id'))
       else
         @set('product_options', [])
+
+  fulfill_order: (order_id) ->
+    console.log('fulfilling order ' + order_id)
+    CoffeeQueue.Order.find order_id, (err, order) =>
+      order.set('status', 'ready')
+      order.save (err) =>
+        if err && err.status == 200
+          @set('orders', CoffeeQueue.Order.get('all'))
+        else
+          console.log(err)
+#      product_options = product && product.get('product_options')
+#      if product_options
+#        @set('product_options', product_options)
+#        product_options.load (err, loaded_product_options) =>
+#          unless err
+#            first_product_option = loaded_product_options.toArray()[0]
+#            @get('order').set('product_option_id', first_product_option.get('id

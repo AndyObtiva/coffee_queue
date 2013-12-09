@@ -3,7 +3,7 @@ module Baristas
     respond_to :html, :json
 
     def signed_in_barista
-      render json: current_barista
+      render json: (current_barista || {username: 'none'})
     end
   end
 end

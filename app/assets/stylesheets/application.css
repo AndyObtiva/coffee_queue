@@ -19,3 +19,7 @@
 #order_queue {
   clear: both;
 }
+
+.false, .fulfill_button.true.ready {
+  display: none;
+}

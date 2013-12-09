@@ -20,13 +20,27 @@
     <button data-event-click="requestCoffee">Submit Coffee Order</button>
   </div>
 </div>
-<div id="barista_actions">
+<div id="barista_actions" data-source-class="signed_in_barista.username | equals 'none' | not">
   <p><span data-source="signed_in_barista.username | default 'Barista' | prepend 'Welcome ' | append '!'"></span></p>
 </div>
-<div id="order_queue">
+<br style="clear: both">
+<br>
+<br>
+<div id="order_queue" class="step">
   Order Queue
   <ul>
-    <li data-foreach-order="orders"
+    <li data-foreach-order="orders">
+      <button data-event-click="fulfill_order | withArguments order.id" data-source-id="order.id | prepend 'order_'" data-source-class="signed_in_barista.username | equals 'none' | not | append ' ' | append order.status | append ' fulfill_button'">
+        Fulfill
+      </button>
+      <span data-bind="order.customer_name | append ' - ' | append order.product.name | append ' - ' | append order.product_option.name"></span>
+    </li>
+  </ul>
+</div>
+<div id="ready_queue" data-class="step">
+  Ready Queue
+  <ul>
+    <li data-foreach-order="orders | select 'status', 'ready'"
         data-bind="order.customer_name | append ' - ' | append order.product.name | append ' - ' | append order.product_option.name">
     </li>
   </ul>

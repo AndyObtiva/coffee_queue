@@ -3,5 +3,5 @@ class CoffeeQueue.Barista extends Batman.Model
   @storageKey: 'baristas'
   @persist Batman.RailsStorage
   @encode 'username',
-    decode: (username) -> name = Batman.helpers.humanize(username); alert(name); name
+    decode: (username) -> Batman.helpers.humanize(username) # not working TODO fix
   @encodeTimestamps()
