@@ -1,4 +1,4 @@
-class CoffeeQueue.ProductOption extends Batman.Model
+ class CoffeeQueue.ProductOption extends Batman.Model
   @resourceName: 'product_option'
   @storageKey: 'product_options'
   @persist Batman.RailsStorage

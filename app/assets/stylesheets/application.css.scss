@@ -1,0 +1,129 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+html {
+  width: 100%;
+  height: 100%;
+
+  body {
+    background: image-url('coffee-counter-barista.jpg') no-repeat top center;
+    background-position: 0 -50px;
+    width: 100%;
+    height: 100%;
+    font-family: 'Russo One', sans-serif;
+    font-size: 1.5em;
+    color: black;
+
+    ul {
+      list-style: none;
+      margin-top: 20px;
+      padding: 0;
+      li {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    table {
+      tr {
+        td {
+          min-width: 100px;
+        }
+      }
+    }
+
+    form {
+      input, select {
+        font-size: 1.5em;
+      }
+    }
+
+    #barista_actions, #coffee_request_form {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 0;
+      margin-bottom: 0;
+      width: 30%;
+      text-align: center;
+      padding: 0;
+    }
+
+    #barista_actions {
+      width: 58%;
+      height: auto;
+    }
+
+    #coffee_request_form {
+      margin-top: 50px;
+    }
+
+    .step {
+      display: inline-block;
+    }
+
+    #order_queue {
+      clear: both;
+    }
+
+    .value_false {
+      display: none;
+    }
+
+    .box {
+      position: relative;
+      width: 30%;
+      overflow-y: auto;
+      padding: 0 50px 20px;
+      margin: 0 6%;
+      background-color: #fff;
+      -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.1);
+      opacity:0.7;
+    }
+
+    .box.step {
+      height: 420px;
+    }
+
+    //.box:before, .box:after {
+    //  position: absolute;
+    //  width: 40%;
+    //  height: 10px;
+    //  content: ' ';
+    //  left: 12px;
+    //  bottom: 12px;
+    //  background: transparent;
+    //  -webkit-transform: skew(-5deg) rotate(-5deg);
+    //  -moz-transform: skew(-5deg) rotate(-5deg);
+    //  -ms-transform: skew(-5deg) rotate(-5deg);
+    //  -o-transform: skew(-5deg) rotate(-5deg);
+    //  transform: skew(-5deg) rotate(-5deg);
+    //  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    //  -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    //  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    //  z-index: -1;
+    //}
+
+    //.box:after {
+    //  left: auto;
+    //  right: 12px;
+    //  -webkit-transform: skew(5deg) rotate(5deg);
+    //  -moz-transform: skew(5deg) rotate(5deg);
+    //  -ms-transform: skew(5deg) rotate(5deg);
+    //  -o-transform: skew(5deg) rotate(5deg);
+    //  transform: skew(5deg) rotate(5deg);
+    //}
+  }
+}
